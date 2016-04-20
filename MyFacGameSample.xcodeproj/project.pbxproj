@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E97A8C5E1CA045B5004CBA1A /* ChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E97A8C5C1CA045B5004CBA1A /* ChallengeViewController.m */; };
 		E9F9B9121C9C993600210824 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F9B9111C9C993600210824 /* main.m */; };
 		E9F9B9151C9C993600210824 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F9B9141C9C993600210824 /* AppDelegate.m */; };
 		E9F9B9181C9C993600210824 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F9B9171C9C993600210824 /* ViewController.m */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E97A8C5B1CA045B5004CBA1A /* ChallengeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeViewController.h; sourceTree = "<group>"; };
+		E97A8C5C1CA045B5004CBA1A /* ChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeViewController.m; sourceTree = "<group>"; };
 		E9F9B90D1C9C993500210824 /* MyFacGameSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFacGameSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9F9B9111C9C993600210824 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E9F9B9131C9C993600210824 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -73,6 +76,8 @@
 				E9F9B9161C9C993600210824 /* ViewController.h */,
 				E9F9B9171C9C993600210824 /* ViewController.m */,
 				E9F9B9191C9C993600210824 /* Main.storyboard */,
+				E97A8C5B1CA045B5004CBA1A /* ChallengeViewController.h */,
+				E97A8C5C1CA045B5004CBA1A /* ChallengeViewController.m */,
 				E9F9B91C1C9C993600210824 /* Assets.xcassets */,
 				E9F9B91E1C9C993600210824 /* LaunchScreen.storyboard */,
 				E9F9B9211C9C993600210824 /* Info.plist */,
@@ -171,6 +176,7 @@
 			files = (
 				E9F9B9181C9C993600210824 /* ViewController.m in Sources */,
 				E9F9B9151C9C993600210824 /* AppDelegate.m in Sources */,
+				E97A8C5E1CA045B5004CBA1A /* ChallengeViewController.m in Sources */,
 				E9F9B9121C9C993600210824 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,6 +330,7 @@
 				E9F9B9261C9C993600210824 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

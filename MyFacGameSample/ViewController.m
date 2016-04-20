@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ChallengeViewController.h"
 
 @interface ViewController () <FBSDKLoginButtonDelegate, FBSDKGameRequestDialogDelegate>
 
@@ -16,6 +17,9 @@
 
 @property(nonatomic, strong) NSString *myProfileId;
 @property(nonatomic, strong) NSString *myProfileName;
+
+@property(nonatomic, strong) NSString *friendProfileId;
+@property(nonatomic, strong) NSString *friendProfileName;
 
 -(void)requestMe;
 
@@ -42,6 +46,31 @@
 - (IBAction)onBtnChallengeClicked:(id)sender {
     
     [self gameRequest];
+    
+}
+
+-(void)goToChallengeView {
+    
+    [self performSegueWithIdentifier:@"ChallengeSegue" sender:self];
+    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ChallengeSegue"]) {
+        
+        ChallengeViewController *challengeViewController = segue.destinationViewController;
+        
+        challengeViewController.myProfileId = self.myProfileId;
+        challengeViewController.myProfileName = self.myProfileName;
+        
+        challengeViewController.friendProfileId = self.friendProfileId;
+        challengeViewController.friendProfileName = self.friendProfileName;
+        
+    }
+}
+
+-(IBAction)unwindToMe:(UIStoryboardSegue *)sender {
     
 }
 
@@ -109,6 +138,31 @@
     
 }
 
+-(void)requestFriendByProfileId:(NSString *)profileId {
+    
+    if ([FBSDKAccessToken currentAccessToken]) {
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:profileId parameters:@{ @"fields" : @"id, name"}]
+         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+             if (!error) {
+                 NSLog(@"fetched user:%@", result);
+                 
+                 self.friendProfileId = result[@"id"];
+                 self.friendProfileName = result[@"name"];
+                 
+                 NSLog(@"Friend id: %@", self.myProfileId);
+                 NSLog(@"Friend name: %@", self.myProfileName);
+                 
+                 [self goToChallengeView];
+                 
+                 
+             } else {
+                 NSLog(@"Me ERROR: %@", error.localizedDescription);
+             }
+         }];
+    }
+    
+}
+
 -(void)gameRequest {
     
     FBSDKGameRequestContent *gameRequestContent = [[FBSDKGameRequestContent alloc] init];
@@ -126,6 +180,10 @@
 - (void)gameRequestDialog:(FBSDKGameRequestDialog *)gameRequestDialog didCompleteWithResults:(NSDictionary *)results {
     
     NSLog(@"Game Request completed: %@", results);
+    
+    NSString *friendProfileId = [results objectForKey:@"to[0]"];
+    
+    [self requestFriendByProfileId:friendProfileId];
     
 }
 

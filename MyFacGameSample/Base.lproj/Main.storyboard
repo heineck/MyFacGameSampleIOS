@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -60,10 +61,86 @@
                         <outlet property="btnFbLogin" destination="h1D-SN-5Zg" id="uHq-gI-mKA"/>
                         <outlet property="imgProfile" destination="DMB-lR-Qw3" id="G1E-GH-wFV"/>
                         <outlet property="lblProfileName" destination="l3h-M2-bpr" id="cQO-9j-gnC"/>
+                        <segue destination="34A-g6-o7l" kind="show" identifier="ChallengeSegue" id="Liu-ls-RCw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Challenge View Controller-->
+        <scene sceneID="Mrm-gP-T5R">
+            <objects>
+                <viewController id="34A-g6-o7l" customClass="ChallengeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ewY-Bv-isL"/>
+                        <viewControllerLayoutGuide type="bottom" id="GCp-PK-Thz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ey7-nZ-DwQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NLo-84-26E" customClass="FBSDKProfilePictureView">
+                                <rect key="frame" x="275" y="139" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGN-sZ-oVR">
+                                <rect key="frame" x="190" y="197" width="220" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhN-Px-ipU">
+                                <rect key="frame" x="190" y="416" width="220" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMJ-Z3-PLd">
+                                <rect key="frame" x="279" y="268" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5U8-lz-6u1">
+                                <rect key="frame" x="534" y="28" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="bTg-ps-Pm3"/>
+                                </constraints>
+                                <state key="normal" title="close"/>
+                                <connections>
+                                    <segue destination="twg-W2-NZv" kind="unwind" unwindAction="unwindToMe:" id="tiC-G0-xMm"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tYL-4U-RsL" customClass="FBSDKProfilePictureView">
+                                <rect key="frame" x="275" y="358" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PMJ-Z3-PLd" firstAttribute="top" secondItem="tGN-sZ-oVR" secondAttribute="bottom" constant="50" id="BNC-0D-OGw"/>
+                            <constraint firstItem="NLo-84-26E" firstAttribute="centerX" secondItem="ey7-nZ-DwQ" secondAttribute="centerX" id="Cki-I8-VCY"/>
+                            <constraint firstItem="vhN-Px-ipU" firstAttribute="centerX" secondItem="ey7-nZ-DwQ" secondAttribute="centerX" id="NAo-ux-PXK"/>
+                            <constraint firstItem="tYL-4U-RsL" firstAttribute="centerX" secondItem="ey7-nZ-DwQ" secondAttribute="centerX" id="UZX-PJ-b1z"/>
+                            <constraint firstItem="5U8-lz-6u1" firstAttribute="trailing" secondItem="ey7-nZ-DwQ" secondAttribute="trailingMargin" id="bEM-rL-2Aj"/>
+                            <constraint firstItem="tGN-sZ-oVR" firstAttribute="centerX" secondItem="ey7-nZ-DwQ" secondAttribute="centerX" id="gJm-Bb-4QB"/>
+                            <constraint firstItem="tYL-4U-RsL" firstAttribute="top" secondItem="PMJ-Z3-PLd" secondAttribute="bottom" constant="50" id="gnk-fb-egp"/>
+                            <constraint firstItem="PMJ-Z3-PLd" firstAttribute="centerY" secondItem="ey7-nZ-DwQ" secondAttribute="centerY" id="mRp-Kl-5cY"/>
+                            <constraint firstItem="5U8-lz-6u1" firstAttribute="top" secondItem="ewY-Bv-isL" secondAttribute="bottom" constant="8" symbolic="YES" id="r2t-Sh-W9q"/>
+                            <constraint firstItem="PMJ-Z3-PLd" firstAttribute="centerX" secondItem="ey7-nZ-DwQ" secondAttribute="centerX" id="zaf-sc-jh3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imgFriendProfile" destination="tYL-4U-RsL" id="RsD-8M-axH"/>
+                        <outlet property="imgMyProfile" destination="NLo-84-26E" id="H2v-lc-9gH"/>
+                        <outlet property="lblFriendProfileName" destination="vhN-Px-ipU" id="Pgv-l4-6Nb"/>
+                        <outlet property="lblMyProfileName" destination="tGN-sZ-oVR" id="GdO-GV-vgT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ODn-LF-WrG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="twg-W2-NZv" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1104" y="274"/>
         </scene>
     </scenes>
 </document>
